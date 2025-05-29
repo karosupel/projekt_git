@@ -1,11 +1,14 @@
 import sys
 import json
+import yaml
 
 def read_file(path):
     ext = path.lower().split('.')[-1]
     with open(path, 'r', encoding='utf-8') as f:
         if ext == 'json':
             return json.load(f)
+        elif ext in ('yaml', 'yml'):
+            return yaml.safe_load(f)
 
 def write_file(data, path):
     ext = path.lower().split('.')[-1]
