@@ -1,6 +1,7 @@
 import sys
 import json
 import yaml
+import xmltodict
 
 def read_file(path):
     ext = path.lower().split('.')[-1]
@@ -9,6 +10,10 @@ def read_file(path):
             return json.load(f)
         elif ext in ('yaml', 'yml'):
             return yaml.safe_load(f)
+        elif ext == 'xml':
+            return xmltodict.parse(f.read())
+        else:
+            raise ValueError(f"Nieobsługiwany format wejściowy: {ext}")
 
 def write_file(data, path):
     ext = path.lower().split('.')[-1]
