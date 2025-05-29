@@ -15,6 +15,8 @@ def write_file(data, path):
     with open(path, 'w', encoding='utf-8') as f:
         if ext == 'json':
             json.dump(data, f, indent=2, ensure_ascii=False)
+        elif ext in ('yaml', 'yml'):
+            yaml.dump(data, f, allow_unicode=True)
 
 def main():
     if len(sys.argv) != 3:
