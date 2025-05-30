@@ -19,9 +19,9 @@ jobs:
     steps:
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
-        with:
-            name: built-exe
-            path: dist/*.exe
+        #with:
+            #name: built-exe
+            #path: dist/*.exe
 
 
       - name: Install dependencies
