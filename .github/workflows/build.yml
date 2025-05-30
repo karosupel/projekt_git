@@ -17,8 +17,12 @@ jobs:
         shell: bash
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: built-exe
+            path: dist/*.exe
+
 
       - name: Install dependencies
         run: ./installResources.sh
